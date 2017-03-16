@@ -1,0 +1,2 @@
+$('table tr td').find('a[href="/project_approval_requests/<%= @project_approval_request.id %>"]').parent().parent().remove();
+$('.flash-wrapper').html("<%= escape_javascript(render 'layouts/flash_messages') %>");

@@ -1,0 +1,9 @@
+<tr>
+  <td><%= @support_request.user.name %></td>
+  <td><%= support_status_label(@support_request.status) %></td>
+  <td><%= @support_request.issue %></td>
+  <td><%= priority_label(@support_request.priority) %></td>
+  <td><%= @support_request.created_at.strftime('%D') %></td>
+  <td><%= link_to support_verb(@support_request.user_id, current_user.id), edit_support_request_path(@support_request) ,"data-remote" => true , "data-toggle" => "modal", "data-target" => "#myModal" %></td>
+  <td><%= link_to 'Destroy', @support_request, method: :delete, data: { confirm: 'Are you sure?' } ,"data-remote" => true , "data-toggle" => "modal", "data-target" => "#myModal" %></td>
+</tr>

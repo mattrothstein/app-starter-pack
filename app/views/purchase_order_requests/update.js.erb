@@ -1,0 +1,6 @@
+$('.modal').modal('hide')
+$('.modal-backdrop').remove();
+$('body').removeClass('modal-open');
+$('table tr td').find('a[href="/purchase_order_requests/<%= @purchase_order_request.id %>"]').
+parent().parent().replaceWith("<%= escape_javascript render(@purchase_order_request) %>");
+$('.flash-wrapper').html("<%= escape_javascript(render 'layouts/flash_messages') %>");

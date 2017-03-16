@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @purchase_order_request.user %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @purchase_order_request.name %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @purchase_order_request.notes %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @purchase_order_request.price %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @purchase_order_request.status %>
+</p>
+
+<%= link_to 'Edit', edit_purchase_order_request_path(@purchase_order_request) ,"data-remote" => true , "data-toggle" => "modal", "data-target" => "#myModal" %> |
+<%= link_to 'Back', purchase_order_requests_path %>

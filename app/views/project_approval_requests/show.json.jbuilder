@@ -1,0 +1,1 @@
+json.partial! "project_approval_requests/project_approval_request", project_approval_request: @project_approval_request

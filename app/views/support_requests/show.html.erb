@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @support_request.status %>
+</p>
+
+<p>
+  <strong>Issue:</strong>
+  <%= @support_request.issue %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @support_request.priority %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @support_request.user %>
+</p>
+
+<%= link_to 'Edit', edit_support_request_path(@support_request) %> |
+<%= link_to 'Back', support_requests_path %>

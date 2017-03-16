@@ -1,0 +1,5 @@
+$('.modal').modal('hide')
+$('.modal-backdrop').remove();
+$('body').removeClass('modal-open');
+$('table').append('<%= j render(@project_approval_request) %>');
+$('.flash-wrapper').html("<%= escape_javascript(render 'layouts/flash_messages') %>");

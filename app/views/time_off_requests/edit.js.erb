@@ -1,0 +1,7 @@
+<% if @form == "approval" %>
+  $("#modal-header").html("<h5>Approve Time Off Request</h5>");
+  $("#ajax-modal").html("<%= escape_javascript(render 'approval_form')%>");
+<% else %>
+  $("#modal-header").html("<h5>Edit Time Off Request</h5>");
+  $("#ajax-modal").html("<%= escape_javascript(render 'form')%>");
+<% end %>

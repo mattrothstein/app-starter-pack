@@ -1,0 +1,7 @@
+<% if @form == "approval" %>
+  $("#modal-header").html("<h5>Approve Project/Work Request</h5>");
+  $("#ajax-modal").html("<%= escape_javascript(render 'approval_form')%>");
+<% else %>
+  $("#modal-header").html("<h5>Edit Purchase Order Request</h5>");
+  $("#ajax-modal").html("<%= escape_javascript(render 'form')%>");
+<% end %>

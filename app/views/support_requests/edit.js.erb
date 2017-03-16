@@ -1,0 +1,7 @@
+<% if @form == "claim" %>
+  $("#modal-header").html("<h5>Claim Support Request</h5>");
+  $("#ajax-modal").html("<%= escape_javascript(render 'claim_form')%>");
+<% else %>
+  $("#modal-header").html("<h5>Edit Support Request</h5>");
+  $("#ajax-modal").html("<%= escape_javascript(render 'form')%>");
+<% end %>
