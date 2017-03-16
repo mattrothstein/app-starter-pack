@@ -5,9 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 gem 'rails', '~> 5.0.2'
-gem 'sqlite3'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -19,6 +17,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
 end
 group :development do
+  gem 'sqlite3'
   gem "better_errors"
   gem "binding_of_caller"
   gem 'web-console', '>= 3.3.0'
@@ -33,4 +32,5 @@ gem 'devise-bootstrap-views'
 gem 'ajax_modal'
 gem 'twitter-bootstrap-rails'
 gem "simple_calendar", "~> 2.0"
+gem 'pg', group: :production
 gem 'rails_12factor', group: :production
