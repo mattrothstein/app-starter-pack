@@ -1,3 +1,6 @@
-<%= month_calendar do |date| %>
-  <%= date %>
+<%= month_calendar(events: @time_off_requests, attribute: :start_date, end_attribute: :end_date) do |date, requests| %>
+  <div class="dates"style="margin-bottom:10px;font-size: 20px;">  <%= date.strftime('%e') if date%></div>
+  <div id="<%=date%>" >
+    <%= render partial: 'day', locals: {requests: requests, date: date} %>
+  </div>
 <% end %>
