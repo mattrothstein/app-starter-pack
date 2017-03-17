@@ -1,0 +1,6 @@
+<div id="<%=request.id%>">
+  <div class="alert alert-<%=alert_color(request.status)%>" role="alert">
+    <a href='<%=time_off_request_path(request)%>' class="alert-link" data-target='#myModal'  aria-hidden='true' data-remote='true' role='button' data-toggle='modal'><%=request.user.name%></a>
+    <span class="pull-right"><i class="glyphicon <%=glyphicon(request.status)%> " ></i></span>
+  </div>
+</div>

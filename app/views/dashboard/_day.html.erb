@@ -1,0 +1,4 @@
+<% requests = @requests if requests.nil? %>
+<% requests.each do |request| %>
+  <%= render partial: 'request', locals: {request: request}%>
+<% end %>

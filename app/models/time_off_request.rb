@@ -16,4 +16,5 @@ class TimeOffRequest < ApplicationRecord
       errors.add :end_date, "must be after start date"
     end
   end
+
 end

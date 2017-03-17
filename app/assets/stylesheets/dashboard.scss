@@ -19,13 +19,13 @@
 .simple-calendar .today {
   background-color: rgba(66, 244, 152, 0.5);
 }
-.simple-calendar .today div:first-child {
+.simple-calendar .today .dates {
   color: green;
 }
 .simple-calendar .past {
   opacity: 0.5;
 }
-.simple-calendar .past div:first-child {
+.simple-calendar .past .dates {
   color: red;
 }
 .simple-calendar .future {}
@@ -37,3 +37,13 @@
 .simple-calendar .current-month {}
 
 .simple-calendar .has-events {}
+
+.calendar-heading {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.calendar-heading a {
+  margin-left: 25px;
+  margin-right: 25px;
+}
