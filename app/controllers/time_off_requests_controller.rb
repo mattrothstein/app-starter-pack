@@ -51,9 +51,12 @@ class TimeOffRequestsController < ApplicationController
   # PATCH/PUT /time_off_requests/1
   # PATCH/PUT /time_off_requests/1.json
   def update
+
     respond_to do |format|
       if @time_off_request.update(time_off_request_params)
-        format.html { redirect_to @time_off_request, notice: 'Time off request was successfully updated.' }
+        if !request.referrer.include? "time_off_requests"
+          redirect_to root_path and return
+        end
         format.json { render :show, status: :ok, location: @time_off_request }
         format.js { flash.now[:success] = 'Time Off Request was succesfully updated' }
       else
