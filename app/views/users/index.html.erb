@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Email</th>
       <th>User Type</th>
       <th>Last Login</th>
       <th>Joined On</th>
@@ -14,6 +15,7 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
+        <td><%= user.email %></td>
         <td><%= user.user_type.name.titleize %></td>
         <td><%= user.last_sign_in_at.strftime('%A, %d %b %Y %l:%M %p')%></td>
         <td><%= user.created_at.strftime('%D') %></td>
