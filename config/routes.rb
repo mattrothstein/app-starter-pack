@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :time_off_requests
     devise_for :users, controllers: {
     sessions: 'users/sessions',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    invitations: 'users/invitations'
   }
 end
