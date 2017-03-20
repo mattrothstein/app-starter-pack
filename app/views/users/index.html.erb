@@ -1,0 +1,27 @@
+<h1>Users</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>User Type</th>
+      <th>Last Login</th>
+      <th>Joined On</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.user_type.name.titleize %></td>
+        <td><%= user.last_sign_in_at.strftime('%A, %d %b %Y %l:%M %p')%></td>
+        <td><%= user.created_at.strftime('%D') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Invite New User', new_user_invitation_path , class: "btn btn-primary"%>

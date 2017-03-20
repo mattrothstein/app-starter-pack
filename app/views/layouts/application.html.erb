@@ -49,9 +49,15 @@
                 <li class="">
                   <a href="<%=support_requests_path%>">Support Request</a>
                 </li>
+                <%  if current_user.user_type.name == "management" || current_user.user_type.name == "executive"%>                
+                <li class="">
+                  <a href="<%=users_path%>">See Users</a>
+                </li>
+                <% end %>
                 <li class="">
                   <a href="<%=edit_user_registration_path%>">My Account</a>
                 </li>
+
                 <li class="">
                   <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
                 </li>
