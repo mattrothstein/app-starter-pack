@@ -49,9 +49,9 @@
                 <li class="">
                   <a href="<%=support_requests_path%>">Support Request</a>
                 </li>
-                <%  if current_user.user_type.name == "management" || current_user.user_type.name == "executive"%>                
+                <%  if current_user.user_type.name == "management" || current_user.user_type.name == "executive"%>
                 <li class="">
-                  <a href="<%=users_path%>">See Users</a>
+                  <a href="/users">See Users</a>
                 </li>
                 <% end %>
                 <li class="">

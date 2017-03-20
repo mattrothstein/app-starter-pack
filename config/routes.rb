@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "dashboard#index"
   get 'dashboard/index'
   resources :user_types
-  resources :users
+  get "users" => 'users#index'
   resources :purchase_order_requests
   resources :project_approval_requests
   resources :time_off_requests
