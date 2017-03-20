@@ -3,8 +3,8 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
       <th>Email</th>
+      <th>Name</th>
       <th>User Type</th>
       <th>Last Login</th>
       <th>Joined On</th>
@@ -14,11 +14,11 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= user.user_type.name.titleize %></td>
-        <td><%= user.last_sign_in_at.strftime('%A, %d %b %Y %l:%M %p')%></td>
-        <td><%= user.created_at.strftime('%D') %></td>
+        <td><%= user.name.present? ? user.name : "Pending Invitation Acceptance"%></td>
+        <td><%= user.user_type ?  user.user_type.name.titleize : "Pending Invitation Acceptance" %></td>
+        <td><%= user.last_sign_in_at ? user.last_sign_in_at.strftime('%A, %d %b %Y %l:%M %p') : "Pending Invitation Acceptance"%></td>
+        <td><%= user.created_at ? user.created_at.strftime('%D') : "Pending Invitation Acceptance" %></td>
       </tr>
     <% end %>
   </tbody>
