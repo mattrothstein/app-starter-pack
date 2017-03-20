@@ -20,4 +20,8 @@ class Users::InvitationsController < Devise::InvitationsController
     devise_parameter_sanitizer.permit(:accept_invitation, keys: [:first_name, :last_name, :password, :password_confirmation, :invitation_token, :user_type_id])
   end
 
+  def after_invite_path_for(resource)
+    users_path
+  end
+
 end
