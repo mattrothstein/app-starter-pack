@@ -1,8 +1,8 @@
 class SupportRequest < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
 
   validates_presence_of :issue, :priority
-  
+
   before_create :set_status_to_open
 
   def set_status_to_open

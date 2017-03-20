@@ -1,0 +1,10 @@
+<%user = @user if user.nil?%>
+<tr>
+  <td><%= user.email %></td>
+  <td><%= user.name.present? ? user.name : "Pending Invitation Acceptance"%></td>
+  <td><%= user.user_type ?  user.user_type.name.titleize : "Pending Invitation Acceptance" %></td>
+  <td><%= user.last_sign_in_at ? user.last_sign_in_at.strftime('%A, %d %b %Y %l:%M %p') : "Pending Invitation Acceptance"%></td>
+  <td><%= user.created_at ? user.created_at.strftime('%D') : "Pending Invitation Acceptance" %></td>
+  <td><%= link_to "Edit", edit_user_path(user) ,"data-remote" => true , "data-toggle" => "modal", "data-target" => "#myModal" %></td>
+  <td><%= link_to 'Destroy', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } ,"data-remote" => true  %></td>
+</tr>

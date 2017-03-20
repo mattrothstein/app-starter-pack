@@ -1,0 +1,5 @@
+$('.modal').modal('hide')
+$('.modal-backdrop').remove();
+$('body').removeClass('modal-open');
+$('table tr td').find('a[href="/users/<%= @user.id %>"]').parent().parent().remove();
+$('.flash-wrapper').html("<%= escape_javascript(render 'layouts/flash_messages') %>");

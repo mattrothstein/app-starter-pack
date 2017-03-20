@@ -1,5 +1,5 @@
 class PurchaseOrderRequest < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
 
   before_create :set_status_to_pending
 

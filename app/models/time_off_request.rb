@@ -1,5 +1,5 @@
 class TimeOffRequest < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
 
   validates_presence_of :start_date, :end_date
   validate :end_date_after_start_date?
