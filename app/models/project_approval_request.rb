@@ -1,5 +1,5 @@
 class ProjectApprovalRequest < ApplicationRecord
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   validates_presence_of :name, :notes
 
   before_create :set_status_to_pending
