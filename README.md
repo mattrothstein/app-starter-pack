@@ -1,24 +1,10 @@
-# README
+[![BuildStatus](https://travis-ci.org/mattrothstein/small-business-management.svg?branch=master)](https://travis-ci.org/mattrothstein/small-business-management)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Small Business Management Application
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This application will provide support for the following:
+* Time Off Requests
+* Purchase Order Requests
+* Support Requests
+* Work Approval Requests
+* Inventory Management
