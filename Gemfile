@@ -42,3 +42,5 @@ gem 'twitter-bootstrap-rails'
 gem "simple_calendar", "~> 2.0"
 gem 'pg', group: :production
 gem 'rails_12factor', group: :production
+gem "cancancan"
+gem 'rails_admin', '~> 1.1.1'

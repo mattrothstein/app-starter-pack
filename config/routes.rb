@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :support_requests
   root to: "dashboard#index"
   get 'dashboard/index'
