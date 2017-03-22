@@ -1,5 +1,6 @@
 class PurchaseOrderRequest < ApplicationRecord
   belongs_to :user, dependent: :destroy
+  validates_presence_of :name, :notes, :price
 
   before_create :set_status_to_pending
 

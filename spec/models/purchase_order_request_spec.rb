@@ -20,10 +20,10 @@ RSpec.describe PurchaseOrderRequest, type: :model do
     end
 
     it "is invalid without without notes" do
-      userType = UserType.create!(name: 'general', "price"=> 1000)
+      userType = UserType.create!(name: 'general')
       user = User.create!(email: "test@gmail.com", password: "123456789")
       #no notes
-      params = {"name"=>"test"}
+      params = {"name"=>"test", "price"=> 1000}
       rqst = user.purchase_order_requests.build(params)
       expect(rqst).to be_invalid
     end
