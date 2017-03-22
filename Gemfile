@@ -16,6 +16,12 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails'
+end
+group :test do
+  gem 'database_cleaner'
+  gem 'rails-controller-testing'
+  gem 'faker', '~> 1.6.1'
 end
 group :development do
   gem 'sqlite3'
