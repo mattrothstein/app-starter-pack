@@ -1,6 +1,6 @@
 class TimeOffRequestsController < ApplicationController
   before_action :set_time_off_request, only: [:show, :edit, :update, :destroy]
-
+  before_action :create_date_from_string, only: [:create, :update]
   # GET /time_off_requests
   # GET /time_off_requests.json
   def index
@@ -82,6 +82,13 @@ class TimeOffRequestsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_time_off_request
       @time_off_request = TimeOffRequest.find(params[:id])
+    end
+
+    def create_date_from_string
+      if params[:time_off_request][:start_date].present? && params[:time_off_request][:end_date].present?
+        params[:time_off_request][:start_date] = Date.strptime(params[:time_off_request][:start_date], '%m/%d/%Y') 
+        params[:time_off_request][:end_date] = Date.strptime(params[:time_off_request][:end_date], '%m/%d/%Y')
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

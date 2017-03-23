@@ -44,3 +44,4 @@ gem 'pg', group: :production
 gem 'rails_12factor', group: :production
 gem "cancancan"
 gem 'rails_admin', '~> 1.1.1'
+gem 'bootstrap-datepicker-rails'
