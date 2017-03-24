@@ -1,97 +1,98 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>SmallBusinessManager</title>
-  <%= csrf_meta_tags %>
-
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
-
-<body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-3 col-lg-2">
-        <nav class="navbar navbar-default navbar-fixed-side">
-          <div class="container">
-            <div class="navbar-header">
-              <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href=""> 4Beauty Aesthetics</a>
-            </div>
-            <div class="collapse navbar-collapse">
-              <form class="navbar-form navbar-left">
-                <div class="form-group">
-                  <input class="form-control" placeholder="Search">
-                </div>
-                <button class="btn btn-default">Search</button>
-              </form>
-              <ul class="nav navbar-nav">
-                <li class="active">
-                  <a href="<%= root_url%>">Dashboard</a>
-                </li>
-                <li class="">
-                  <a href="">Inventory</a>
-                </li>
-                <li class="">
-                  <a href="<%=purchase_order_requests_path%>">Purchase Order Request</a>
-                </li>
-                <li class="">
-                  <a href="<%=project_approval_requests_path%>">Project Approval Request</a>
-                </li>
-                <li class="">
-                  <a href="<%=time_off_requests_path%>">Time Off Request</a>
-                </li>
-                <li class="">
-                  <a href="<%=support_requests_path%>">Support Request</a>
-                </li>
-                <%  if current_user.user_type.name == "management" || current_user.user_type.name == "executive"%>
-                <li class="">
-                  <a href="/users">See Users</a>
-                </li>
-                <% end %>
-                <li class="">
-                  <a href="<%=edit_user_registration_path%>">My Account</a>
-                </li>
-
-                <li class="">
-                  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-      <div class="col-sm-9 col-lg-10">
-        <br>
-        <center class="flash-wrapper">
-          <%= render partial: 'layouts/flash_messages'%>
-        </center>
-        <%= yield %>
-
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <span id="modal-header"></span>
-                <div style="clear:both;"></div>
-              </div>
-              <div class="modal-body" id="ajax-modal">
-
-              </div>
-            </div>
-          </div>
+  <head>
+    <title>SmallBusinessManager</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">4Beauty Aesthetics</a>
         </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item">
+              <a class="nav-link" href="<%= root_url%>">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<%=edit_user_registration_path%>">My Account</a>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "nav-link"  %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-md-2 sidebar navbar-default">
+          <ul class="nav nav-sidebar">
+            <li class="nav-item">
+              <a class="nav-link" href="<%=inventory_locations_path%>">Inventory</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<%=purchase_order_requests_path%>">Purchase Order Request</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<%=project_approval_requests_path%>">Project Approval Request</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<%=time_off_requests_path%>">Time Off Request</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<%=support_requests_path%>">Support Request</a>
+            </li>
+            <%  if current_user.user_type.name == "management" || current_user.user_type.name == "executive"%>
+            <li class="nav-item">
+              <a class="nav-link" href="/users">See Users</a>
+            </li>
+            <% end %>
+            <%  if current_user.user_type.name == "support" || current_user.user_type.name == "executive"%>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin">Administration</a>
+            </li>
+            <% end %>
+          </ul>
+        </nav>
+
+        <main class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <br>
+          <center class="flash-wrapper">
+            <%= render partial: 'layouts/flash_messages'%>
+          </center>
+          <%= yield %>
+
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title"><span id="modal-header"></span></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body" id="ajax-modal">
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </main>
       </div>
     </div>
-  </div>
+  </body>
 
-
-</body>
 </html>

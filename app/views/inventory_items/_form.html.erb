@@ -1,0 +1,55 @@
+<%= form_for [@inventory_item.inventory_location,@inventory_item ], :html => { :class => "form-horizontal inventory_item" } do |f| %>
+
+  <% if @inventory_item.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@inventory_item.errors.count, "error") %> prohibited this inventory_item from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @inventory_item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :inventory_location_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select :inventory_location_id,InventoryLocation.all.collect { |p| [ p.name.titleize, p.id ] },{}, :class => 'form-control chzn-select' %>
+    </div>
+    <%=f.error_span(:inventory_location_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.number_field :price, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:price) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :unit_of_measurement, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :unit_of_measurement, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:unit_of_measurement) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                inventory_location_inventory_items_path(@inventory_item.inventory_location), :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>

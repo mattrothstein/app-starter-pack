@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Inventory item:</strong>
+  <%= @inventory_item_unit.inventory_item %>
+</p>
+
+<p>
+  <strong>Checked out:</strong>
+  <%= @inventory_item_unit.checked_out %>
+</p>
+
+<p>
+  <strong>Checked in:</strong>
+  <%= @inventory_item_unit.checked_in %>
+</p>
+
+<p>
+  <strong>Checked out by:</strong>
+  <%= @inventory_item_unit.checked_out_by %>
+</p>
+
+<%= link_to 'Edit', edit_inventory_item_unit_path(@inventory_item_unit) %> |
+<%= link_to 'Back', inventory_item_units_path %>

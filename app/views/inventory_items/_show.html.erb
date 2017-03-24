@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Inventory location:</strong>
+  <%= @inventory_item.inventory_location %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @inventory_item.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @inventory_item.price %>
+</p>
+
+<p>
+  <strong>Unit of measurement:</strong>
+  <%= @inventory_item.unit_of_measurement %>
+</p>
+
+<%= link_to 'Edit', edit_inventory_item_path(@inventory_item) ,"data-remote" => true , "data-toggle" => "modal", "data-target" => "#myModal" %> |
+<%= link_to 'Back', inventory_items_path %>

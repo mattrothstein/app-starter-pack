@@ -10,7 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320150831) do
+ActiveRecord::Schema.define(version: 20170323181049) do
+
+  create_table "inventory_item_units", force: :cascade do |t|
+    t.integer  "inventory_item_id"
+    t.date     "checked_out"
+    t.date     "checked_in"
+    t.string   "checked_out_by"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["inventory_item_id"], name: "index_inventory_item_units_on_inventory_item_id"
+  end
+
+  create_table "inventory_items", force: :cascade do |t|
+    t.integer  "inventory_location_id"
+    t.string   "name"
+    t.integer  "price"
+    t.string   "unit_of_measurement"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["inventory_location_id"], name: "index_inventory_items_on_inventory_location_id"
+  end
+
+  create_table "inventory_locations", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "project_approval_requests", force: :cascade do |t|
     t.integer  "user_id"
