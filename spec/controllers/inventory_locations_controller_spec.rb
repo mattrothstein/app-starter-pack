@@ -19,16 +19,20 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe InventoryLocationsController, type: :controller do
-
+  before :each do
+    userType = UserType.create!(name: 'general')
+    user = FactoryGirl.create(:user)
+    sign_in user
+  end
   # This should return the minimal set of attributes required to create a valid
   # InventoryLocation. As you add validations to InventoryLocation, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {name: "park"}
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {name: "abcdefghijklmnopqrstuvwxyz"}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -55,6 +59,7 @@ RSpec.describe InventoryLocationsController, type: :controller do
   describe "GET #new" do
     it "assigns a new inventory_location as @inventory_location" do
       get :new, params: {}, session: valid_session
+      @inventory_location = InventoryLocation.new
       expect(assigns(:inventory_location)).to be_a_new(InventoryLocation)
     end
   end

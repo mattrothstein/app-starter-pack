@@ -12,6 +12,8 @@
   <dd><%= @inventory_item.price %></dd>
   <dt><strong><%= model_class.human_attribute_name(:unit_of_measurement) %>:</strong></dt>
   <dd><%= @inventory_item.unit_of_measurement %></dd>
+  <dt><strong>Units:</strong></dt>
+  <dd><%= @inventory_item.inventory_item_units.count %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

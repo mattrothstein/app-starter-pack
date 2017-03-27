@@ -54,7 +54,8 @@ RSpec.describe InventoryItemsController, type: :controller do
 
   describe "GET #new" do
     it "assigns a new inventory_item as @inventory_item" do
-      get :new, params: {}, session: valid_session
+      inventory_location = InventoryLocation.create! valid_attributes
+      get :new, params: {inventory_location_id: inventory_location.id}, session: valid_session
       expect(assigns(:inventory_item)).to be_a_new(InventoryItem)
     end
   end

@@ -16,6 +16,7 @@
       <th><%= model_class.human_attribute_name(:inventory_location_id) %></th>
       <th><%= model_class.human_attribute_name(:price) %></th>
       <th><%= model_class.human_attribute_name(:unit_of_measurement) %></th>
+      <th>Units</th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th colspan="2">Actions</th>
     </tr>
@@ -27,6 +28,7 @@
         <td><%= inventory_item.inventory_location.name.titleize %></td>
         <td><%= inventory_item.price %></td>
         <td><%= inventory_item.unit_of_measurement %></td>
+        <td><%= inventory_item.inventory_item_units.count %></td>
         <td><%=l inventory_item.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

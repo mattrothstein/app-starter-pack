@@ -1,7 +1,7 @@
 <h1>Inventory Locations</h1>
 <% @inventory_locations.each do |inventory_location| %>
   <div class="card col-md-3" >
-    <img class="card-img-top" src="https://lh5.ggpht.com/3yBFDxy0Jouw9zu-TmoHM451rvThS63uf3tgbuZaYrRtw8yFk1eMthh613NPIeBxJ99G=w300" alt="Card image cap">
+    <center><%= image_tag "/barcodes.png",class:"card-img-top", width: "200px" %></center>
     <div class="card-block">
       <h4 class="card-title"><%=inventory_location.name.titleize %></h4>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
