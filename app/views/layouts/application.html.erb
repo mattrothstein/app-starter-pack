@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="http://cloud.tinymce.com/stable/tinymce.min.js?apiKey=6p5o2rjytru4cb0mml5i4g5lu9c5uy5uee9q71cwpr9yodjw"></script>
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -78,10 +79,11 @@
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title"><span id="modal-header"></span></h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
+                  <span class="h5" id="modal-header"></span>
+
                 </div>
                 <div class="modal-body" id="ajax-modal">
 

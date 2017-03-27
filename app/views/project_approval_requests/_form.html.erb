@@ -1,3 +1,17 @@
+<script src="http://cloud.tinymce.com/stable/tinymce.min.js?apiKey=6p5o2rjytru4cb0mml5i4g5lu9c5uy5uee9q71cwpr9yodjw"></script>
+<script>
+  tinymce.init({
+    selector: 'textarea',
+    height: 200,
+    plugins: [
+      'advlist autolink lists link image charmap print preview anchor',
+      'searchreplace visualblocks code fullscreen',
+      'insertdatetime media table contextmenu paste code'
+    ],
+    toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+    content_css: '//www.tinymce.com/css/codepen.min.css'
+  });
+</script>
 <%= form_for(@project_approval_request, :remote=> true) do |f| %>
   <% if @project_approval_request.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
