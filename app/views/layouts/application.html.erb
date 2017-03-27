@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="http://cloud.tinymce.com/stable/tinymce.min.js?apiKey=6p5o2rjytru4cb0mml5i4g5lu9c5uy5uee9q71cwpr9yodjw"></script>
+    <script src="http://cloud.tinymce.com/stable/tinymce.min.js?apiKey=<%=ENV["tinymce_key"]%>"></script>
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
