@@ -1,7 +1,7 @@
 <tr>
   <td><%= @purchase_order_request.user.name %></td>
   <td><%= @purchase_order_request.name %></td>
-  <td><%= @purchase_order_request.notes %></td>
+  <td><%= @purchase_order_request.notes.html_safe %></td>
   <td><%= number_to_currency(purchase_order_request.price_in_dollars) %></td>
   <td><%= status_label(@purchase_order_request.status) %></td>
   <td><%= @purchase_order_request.created_at.strftime('%D') %></td>

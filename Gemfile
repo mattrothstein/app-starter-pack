@@ -45,3 +45,7 @@ gem 'rails_12factor', group: :production
 gem "cancancan"
 gem 'rails_admin', '~> 1.1.1'
 gem 'bootstrap-datepicker-rails'
+gem 'barby', '~> 0.6.4'
+gem 'chunky_png'
+gem "paperclip", "~> 5.0.0"
+gem 'aws-sdk'

@@ -1,0 +1,3 @@
+		$('table tr td').find('a[href="/inventory_items/<%= @inventory_item.id %>"]').
+		parent().parent().replaceWith("<%= escape_javascript render(@inventory_item) %>");
+		$("#ajax-modal").html("<%= escape_javascript(render 'show', notice: "Update successful.") %>");

@@ -1,0 +1,11 @@
+<h1>Inventory Locations</h1>
+<% @inventory_locations.each do |inventory_location| %>
+  <div class="card col-md-3" >
+    <center><%= image_tag "/barcodes.png",class:"card-img-top", width: "200px" %></center>
+    <div class="card-block">
+      <h4 class="card-title"><%=inventory_location.name.titleize %></h4>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <%= link_to 'Show', inventory_location_inventory_items_path(inventory_location), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

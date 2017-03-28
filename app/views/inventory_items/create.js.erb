@@ -1,0 +1,6 @@
+		$('.modal').modal('hide')
+		$('.modal-backdrop').remove();
+		$('body').removeClass('modal-open');
+		$('table').append('<%= j render(@inventory_item) %>');
+		$("#ajax-modal").html("<%= escape_javascript(render 'show', notice:
+		"Inventory_item created successful.") %>");

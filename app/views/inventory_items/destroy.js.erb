@@ -1,0 +1,6 @@
+		$('.modal').modal('hide')
+		$('.modal-backdrop').remove();
+		$('body').removeClass('modal-open');
+		$('table tr td').find('a[href="/inventory_items/<%= @inventory_item.id %>"]').parent().parent()
+		.remove();
+		$('#ajax-modal').html('');
