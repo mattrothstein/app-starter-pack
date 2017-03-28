@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170323181049) do
+ActiveRecord::Schema.define(version: 20170328153905) do
 
   create_table "inventory_item_units", force: :cascade do |t|
     t.integer  "inventory_item_id"
@@ -29,6 +29,10 @@ ActiveRecord::Schema.define(version: 20170323181049) do
     t.string   "unit_of_measurement"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.string   "barcode_file_name"
+    t.string   "barcode_content_type"
+    t.integer  "barcode_file_size"
+    t.datetime "barcode_updated_at"
     t.index ["inventory_location_id"], name: "index_inventory_items_on_inventory_location_id"
   end
 

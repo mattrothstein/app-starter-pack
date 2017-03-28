@@ -29,4 +29,4 @@
 <br>
 
 
-<%= image_tag("/barcodes/barcode_#{@inventory_item.id.to_s}.png") %><br>
+<%=image_tag @inventory_item.barcode.url%><br>

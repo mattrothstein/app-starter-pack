@@ -14,10 +14,7 @@ class InventoryItemsController < ApplicationController
   # GET /inventory_items/1
   # GET /inventory_items/1.json
   def show
-    barcode_value = ("4BEAUTY#{@inventory_item.id.to_s}").to_s.to_blob
-    @full_path = "public/barcodes/barcode_#{@inventory_item.id.to_s.to_blob}.png"
-    barcode = Barby::Code39.new(barcode_value)
-    File.open(@full_path, 'wb') { |f| f.write barcode.to_png() }
+
   end
 
   def search
@@ -42,6 +39,14 @@ class InventoryItemsController < ApplicationController
 
     respond_to do |format|
       if @inventory_item.save
+        barcode_value = ("4BEAUTY#{@inventory_item.id.to_s}").to_s.to_blob
+        full_path = "public/barcodes/barcode_#{@inventory_item.id.to_s.to_blob}.png"
+        barcode = Barby::Code39.new(barcode_value)
+        File.open(full_path, 'wb') { |f| f.write barcode.to_png() }
+        @inventory_item.barcode = File.open(full_path)
+        if @inventory_item.save
+          FileUtils.rm(full_path)
+        end
         format.html { redirect_to inventory_location_inventory_items_path(@inventory_item.inventory_location), notice: 'Inventory item was successfully created.' }
         format.json { render :show, status: :created, location: @inventory_item }
         format.js
@@ -74,7 +79,7 @@ class InventoryItemsController < ApplicationController
   def destroy
     @inventory_item.destroy
     respond_to do |format|
-      format.html { redirect_to inventory_items_url, notice: 'Inventory item was successfully destroyed.' }
+      format.html { redirect_to inventory_location_inventory_items_path(@inventory_item.inventory_location), notice: 'Inventory item was successfully destroyed.' }
       format.json { head :no_content }
       format.js
     end
