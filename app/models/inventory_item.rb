@@ -13,4 +13,11 @@ class InventoryItem < ApplicationRecord
       raise "Insufficient Inventory - Requested #{amt} #{self.name.titleize} only have #{self.inventory_item_units.available.count} in stock."
     end
   end
+
+  def checkin(amt)
+    amt.times do
+      self.inventory_item_units.create(checked_in: Date.today)
+    end
+  end
+
 end

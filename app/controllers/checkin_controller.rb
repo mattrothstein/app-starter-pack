@@ -1,9 +1,9 @@
-class CheckoutController < ApplicationController
+class CheckinController < ApplicationController
   before_action :set_inventory_location, only: [:select_item, :new]
   def new
   end
 
-  def select_item
+  def add_item
     id =params[:item_id].gsub("4BEAUTY", "")
     begin
       @item = @inventory_location.inventory_items.find(id)
@@ -15,11 +15,11 @@ class CheckoutController < ApplicationController
 
   def create
     begin
-      params[:checkout].each do |item_id, amount|
+      params[:checkin].each do |item_id, amount|
           item = InventoryItem.find(item_id)
-          item.checkout(amount.to_i, current_user)
+          item.checkin(amount.to_i)
       end
-      flash[:success] =  "Successfully Checked Out"
+      flash[:success] =  "Successfully Restocked"
     rescue Exception => ex
       flash[:error] =  "#{ex}"
     end
