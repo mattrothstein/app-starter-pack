@@ -4,4 +4,13 @@ class InventoryItem < ApplicationRecord
   has_attached_file :barcode
   validates_attachment_content_type :barcode, content_type: /\Aimage\/.*\z/
 
+  def checkout(amt, usr)
+    if self.inventory_item_units.available.count >= amt
+      self.inventory_item_units.available[0 .. (amt - 1)].each do |unit|
+        unit.checkout_unit(usr)
+      end
+    else
+      raise "Insufficient Inventory - Requested #{amt} #{self.name.titleize} only have #{self.inventory_item_units.available.count} in stock."
+    end
+  end
 end

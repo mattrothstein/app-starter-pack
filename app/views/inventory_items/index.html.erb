@@ -28,7 +28,7 @@
         <td><%= inventory_item.inventory_location.name.titleize %></td>
         <td><%= inventory_item.price %></td>
         <td><%= inventory_item.unit_of_measurement %></td>
-        <td><%= inventory_item.inventory_item_units.count %></td>
+        <td><%= inventory_item.inventory_item_units.available.count %></td>
         <td><%=l inventory_item.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -45,3 +45,4 @@
 </table>
 
 <%= link_to "New", new_inventory_location_inventory_item_path(@inventory_location), :class => 'btn btn-primary' %>
+<%= link_to 'Check Out Items', new_checkout_path , :class => 'btn btn-default' , "data-remote" => true , "data-toggle" => "modal", "data-target" => "#myModal" %>

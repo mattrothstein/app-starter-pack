@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   resources :inventory_locations do
     resources :inventory_items do
       resources :inventory_item_units
@@ -11,6 +13,9 @@ Rails.application.routes.draw do
   get 'dashboard/index'
   resources :user_types
   resources :users
+  resources :checkout
+  get 'add_item' => "checkout#add_item", as: "add_item"
+  post 'checkout' => "checkout#create", as: "checkout_items"
   resources :purchase_order_requests
   resources :project_approval_requests
   resources :time_off_requests

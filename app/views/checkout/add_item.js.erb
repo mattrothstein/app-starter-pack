@@ -1,0 +1,12 @@
+if ($("#<%=@item.id%>").length){
+  $("#<%=@item.id%>").val( function(i, oldval) {
+    return ++oldval;
+  });
+  $("#item_id").val("").focus();
+  $("#checkout").removeClass("hidden");
+}
+else {
+  $("#item_id").val("").focus();
+  $("#checkout").removeClass("hidden");
+  $("#checkout-items").append("<%= escape_javascript(render 'item')%>");
+}
