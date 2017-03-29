@@ -8,13 +8,24 @@ class InventoryItemsController < ApplicationController
   # GET /inventory_items
   # GET /inventory_items.json
   def index
-    @inventory_items = @inventory_location.inventory_items
+    respond_to do |format|
+      format.html do
+        @inventory_items = @inventory_location.inventory_items.paginate(:page => params[:page])
+      end
+      format.pdf do
+        @inventory_items = @inventory_location.inventory_items
+        render pdf: "index"   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   # GET /inventory_items/1
   # GET /inventory_items/1.json
   def show
-
+    if @inventory_item.barcode.url == "/barcodes/original/missing.png"
+      @inventory_item.create_barcode
+      @inventory_item.save
+    end
   end
 
   def search

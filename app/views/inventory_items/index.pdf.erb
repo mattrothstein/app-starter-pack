@@ -1,0 +1,9 @@
+<h1><%=@inventory_location.name.titleize%></h1>
+<hr>
+<%@inventory_items.each do |item| %>
+<div class="card" >
+    <%= image_tag item.barcode.url,class:"card-img-top"%><br>
+    <h4 class="card-title"><%=item.name.titleize %></h4>
+</div>
+<hr>
+<% end %>

@@ -6,6 +6,8 @@ class Ability
     if user && user.admin?
       can :access, :rails_admin       # only allow admin users to access Rails Admin
       can :manage, :all             # allow superadmins to do anything
+      cannot :import, :all
+      can :import, [InventoryItem, InventoryItemUnit]
       # if user.role? :superadmin
       #   can :manage, :all             # allow superadmins to do anything
       # elsif user.role? :manager
