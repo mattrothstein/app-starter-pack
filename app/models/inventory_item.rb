@@ -1,3 +1,6 @@
+require 'barby'
+require 'barby/barcode/code_39'
+require 'barby/outputter/png_outputter'
 class InventoryItem < ApplicationRecord
   belongs_to :inventory_location
   has_many :inventory_item_units
@@ -17,6 +20,21 @@ class InventoryItem < ApplicationRecord
   def checkin(amt)
     amt.times do
       self.inventory_item_units.create(checked_in: Date.today)
+    end
+  end
+
+  def create_barcode
+    barcode_value = ("4BEAUTY#{self.id.to_s}").to_s.to_blob
+    full_path = "public/barcodes/barcode_#{self.id.to_s.to_blob}.png"
+    barcode = Barby::Code39.new(barcode_value)
+    File.open(full_path, 'wb') do |f|
+      f.write barcode.to_png()
+      f.close
+    end
+    self.barcode = File.open(full_path)
+
+    if self.save
+      FileUtils.rm(full_path)
     end
   end
 

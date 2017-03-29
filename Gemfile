@@ -49,3 +49,7 @@ gem 'barby', '~> 0.6.4'
 gem 'chunky_png'
 gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk'
+gem "rails_admin_import", "~> 2.0"
+gem 'will_paginate', '~> 3.1.0'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

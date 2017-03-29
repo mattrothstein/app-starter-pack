@@ -1,5 +1,5 @@
 class CheckinController < ApplicationController
-  before_action :set_inventory_location, only: [:select_item, :new]
+  before_action :set_inventory_location, only: [:add_item, :new]
   def new
   end
 
