@@ -24,8 +24,8 @@ class InventoryItem < ApplicationRecord
   end
 
   def create_barcode
-    barcode_value = ("4BEAUTY#{self.id.to_s}").to_s.to_blob
-    full_path = "public/barcodes/barcode_#{self.id.to_s.to_blob}.png"
+    barcode_value = ("4BEAUTY#{self.id.to_s}").to_s
+    full_path = "public/barcodes/barcode_#{self.id.to_s}.png"
     barcode = Barby::Code39.new(barcode_value)
     File.open(full_path, 'wb') do |f|
       f.write barcode.to_png()
