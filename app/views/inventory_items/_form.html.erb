@@ -39,7 +39,7 @@
   <div class="form-group">
     <%= f.label :unit_of_measurement, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :unit_of_measurement, :class => 'form-control' %>
+      <%= f.select :unit_of_measurement,[["EA","EA"],["CS","CS"],["BX","BX"]] ,{},:class => 'form-control' %>
     </div>
     <%=f.error_span(:unit_of_measurement) %>
   </div>

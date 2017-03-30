@@ -53,3 +53,4 @@ gem "rails_admin_import", "~> 2.0"
 gem 'will_paginate', '~> 3.1.0'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'smarter_csv'

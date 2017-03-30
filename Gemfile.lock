@@ -246,6 +246,7 @@ GEM
     simple_xlsx_reader (1.0.2)
       nokogiri
       rubyzip
+    smarter_csv (1.1.4)
     spring (2.0.1)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -322,6 +323,7 @@ DEPENDENCIES
   rspec-rails (~> 3.5)
   sass-rails (~> 5.0)
   simple_calendar (~> 2.0)
+  smarter_csv
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
