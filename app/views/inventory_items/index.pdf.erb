@@ -1,9 +1,11 @@
 <h1><%=@inventory_location.name.titleize%></h1>
 <hr>
 <%@inventory_items.each do |item| %>
-<div class="card" >
-    <%= image_tag item.barcode.url,class:"card-img-top"%><br>
-    <h4 class="card-title"><%=item.name.titleize %></h4>
-</div>
-<hr>
+  <div class="" style="display:inline-block;width:45%;">
+    <center>
+      <%= image_tag item.barcode.url,class:"card-img-top"%><br>
+      <h4 class="card-title"><%=item.name.titleize %></h4>
+    </center>
+    <hr>
+  </div>
 <% end %>
