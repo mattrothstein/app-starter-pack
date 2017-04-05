@@ -12,4 +12,5 @@ This application will provide support for the following:
   * Inventory Items
   * Inventory Item Groups
   * Inventory Item Units
-   The Inventory Management supports barcode scanning and barcode creation. Inventory Items and Inventory Item Groups will have unique barcodes. The barcode will be made from the objects inventory item's ID.
+
+  ...The Inventory Management supports barcode scanning and barcode creation. Inventory Items and Inventory Item Groups will have unique barcodes. The barcode will be made from the objects inventory item's ID.
