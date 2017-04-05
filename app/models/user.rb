@@ -24,7 +24,7 @@ class User < ApplicationRecord
   end
 
   def admin?
-    self.user_type.name == "executive" || self.user_type.name == "management" 
+    self.user_type.name == "executive" || self.user_type.name == "management"
   end
 
 end

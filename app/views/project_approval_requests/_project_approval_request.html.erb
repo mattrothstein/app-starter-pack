@@ -1,7 +1,7 @@
 <tr>
   <td><%= @project_approval_request.user.name %></td>
   <td><%= @project_approval_request.name %></td>
-  <td><%= @project_approval_request.notes %></td>
+  <td><%= @project_approval_request.notes.html_safe %></td>
   <td><%= status_label(@project_approval_request.status) %></td>
   <td><%= @project_approval_request.created_at.strftime('%D') %></td>
   <td><%= link_to verb(@project_approval_request.user_id, current_user.id), edit_project_approval_request_path(project_approval_request) ,"data-remote" => true , "data-toggle" => "modal", "data-target" => "#myModal" %></td>
