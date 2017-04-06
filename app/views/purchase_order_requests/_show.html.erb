@@ -1,13 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>User:</strong>
-  <%= @purchase_order_request.user %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @purchase_order_request.name %>
+  <%= @purchase_order_request.user.name %>
 </p>
 
 <p>
@@ -24,6 +17,6 @@
   <strong>Status:</strong>
   <%= @purchase_order_request.status %>
 </p>
-
-<%= link_to 'Edit', edit_purchase_order_request_path(@purchase_order_request) ,"data-remote" => true , "data-toggle" => "modal", "data-target" => "#myModal" %> |
-<%= link_to 'Back', purchase_order_requests_path %>
+<br>
+<%= link_to verb(@purchase_order_request.user_id, current_user.id), edit_purchase_order_request_path(@purchase_order_request) ,"data-remote" => true ,class: "btn btn-sm btn-warning" %>
+<%= link_to 'Destroy', @purchase_order_request, method: :delete, data: { confirm: 'Are you sure?' } ,"data-remote" => true ,class: "btn btn-sm btn-danger" %>

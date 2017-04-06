@@ -1,4 +1,2 @@
-		$('.modal').modal('hide')
-		$('.modal-backdrop').remove();
-		$('body').removeClass('modal-open');
-		$('#ajax-modal').html("<%= escape_javascript(render 'show')%>")
+$("#modal-header").html("<h5><%=@purchase_order_request.name.titleize%></h5>");
+$('#ajax-modal').html("<%= escape_javascript(render 'show')%>")

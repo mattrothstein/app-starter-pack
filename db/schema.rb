@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170328153905) do
+ActiveRecord::Schema.define(version: 20170406034105) do
+
+  create_table "grouped_items", force: :cascade do |t|
+    t.integer  "inventory_item_group_id"
+    t.integer  "inventory_item_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["inventory_item_group_id"], name: "index_grouped_items_on_inventory_item_group_id"
+    t.index ["inventory_item_id"], name: "index_grouped_items_on_inventory_item_id"
+  end
+
+  create_table "inventory_item_groups", force: :cascade do |t|
+    t.integer  "inventory_location_id"
+    t.string   "name"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["inventory_location_id"], name: "index_inventory_item_groups_on_inventory_location_id"
+  end
 
   create_table "inventory_item_units", force: :cascade do |t|
     t.integer  "inventory_item_id"
