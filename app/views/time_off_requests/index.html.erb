@@ -1,6 +1,5 @@
 <h1>Time Off Requests</h1>
-
-<table class="table ">
+<table class="table">
   <thead class="">
     <tr>
       <th>User</th>
@@ -16,8 +15,8 @@
     <% @time_off_requests.each do |time_off_request| %>
       <tr>
         <td><%= time_off_request.user.name %></td>
-        <td><%= time_off_request.start_date.strftime('%D') %></td>
-        <td><%= time_off_request.end_date.strftime('%D') %></td>
+        <td><%= time_off_request.start_date.strftime('%A, %d %b %Y %l:%M %p') %></td>
+        <td><%= time_off_request.end_date.strftime('%A, %d %b %Y %l:%M %p') %></td>
         <td><%= status_label(time_off_request.status) %></td>
         <td><%= time_off_request.created_at.strftime('%D')%></td>
         <td><%= link_to verb(time_off_request.user_id, current_user.id), edit_time_off_request_path(time_off_request) ,"data-remote" => true , "data-toggle" => "modal", "data-target" => "#myModal" %></td>

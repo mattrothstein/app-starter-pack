@@ -44,7 +44,6 @@ gem 'pg', group: :production
 gem 'rails_12factor', group: :production
 gem "cancancan"
 gem 'rails_admin', '~> 1.1.1'
-gem 'bootstrap-datepicker-rails'
 gem 'barby', '~> 0.6.4'
 gem 'chunky_png'
 gem "paperclip", "~> 5.0.0"
@@ -55,3 +54,5 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'smarter_csv'
 gem 'tinymce-rails'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
