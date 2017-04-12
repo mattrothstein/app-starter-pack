@@ -51,7 +51,6 @@ class TimeOffRequestsController < ApplicationController
   # PATCH/PUT /time_off_requests/1
   # PATCH/PUT /time_off_requests/1.json
   def update
-
     respond_to do |format|
       if @time_off_request.update(time_off_request_params)
         if !request.referrer.include? "time_off_requests"
@@ -86,13 +85,13 @@ class TimeOffRequestsController < ApplicationController
 
     def create_date_from_string
       if params[:time_off_request][:start_date].present? && params[:time_off_request][:end_date].present?
-        params[:time_off_request][:start_date] = Date.strptime(params[:time_off_request][:start_date], '%m/%d/%Y') 
-        params[:time_off_request][:end_date] = Date.strptime(params[:time_off_request][:end_date], '%m/%d/%Y')
+        params[:time_off_request][:start_date] = DateTime.strptime(params[:time_off_request][:start_date], '%m/%d/%Y %l:%M %p ')
+        params[:time_off_request][:end_date] = DateTime.strptime(params[:time_off_request][:end_date], '%m/%d/%Y %l:%M %p')
       end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def time_off_request_params
-      params.require(:time_off_request).permit(:user_id, :start_date, :end_date, :status)
+      params.require(:time_off_request).permit(:user_id, :start_date, :end_date, :status, :note, :leave_time, :return_time)
     end
 end

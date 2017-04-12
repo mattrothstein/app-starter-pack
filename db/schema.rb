@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406034105) do
+ActiveRecord::Schema.define(version: 20170411140618) do
 
   create_table "grouped_items", force: :cascade do |t|
     t.integer  "inventory_item_group_id"
     t.integer  "inventory_item_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "units"
     t.index ["inventory_item_group_id"], name: "index_grouped_items_on_inventory_item_group_id"
     t.index ["inventory_item_id"], name: "index_grouped_items_on_inventory_item_id"
   end
@@ -93,11 +94,12 @@ ActiveRecord::Schema.define(version: 20170406034105) do
 
   create_table "time_off_requests", force: :cascade do |t|
     t.integer  "user_id"
-    t.date     "start_date"
-    t.date     "end_date"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.string   "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "note"
     t.index ["user_id"], name: "index_time_off_requests_on_user_id"
   end
 
